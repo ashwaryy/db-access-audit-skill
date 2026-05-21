@@ -66,7 +66,7 @@ Mark every answer derived from code exploration as **[inferred from repo]**.
 
 ## Step 3 — Ask the human only for what remains
 
-If any of the following questions are still unanswered after Steps 1 and 2, ask the human. Present only the unanswered ones — do not ask about things you already know. If the human explicitly declines to answer or asks you to proceed, continue and flag the assumption in the report as **Inferred — not confirmed by human**.
+If any of the following questions are still unanswered after Steps 1 and 2, ask the human. Present only unanswered questions — do not ask about things you already know. Ask one question per message and wait for the answer before asking the next unresolved question. If the host supports native selectable options, use them for fixed-choice questions; otherwise use numbered choices. If the human answers multiple pending questions at once, record all supplied answers and continue with the next unresolved question. If the human explicitly declines to answer or asks you to proceed, continue and flag the assumption in the report as **Inferred — not confirmed by human**.
 
 ```
 Context Questions (ask only unanswered ones)
@@ -75,6 +75,11 @@ Q1. Tenancy model
     Single-tenant (one org, internal users only), multi-tenant
     (many orgs sharing one database), or user-owned data
     (each row belongs to one individual)?
+    Fixed-choice prompt:
+    1. Single-tenant
+    2. Multi-tenant
+    3. User-owned data
+    4. Not sure / infer from repo
 
 Q2. User types
     Who are the users? (internal staff, external customers, both,
@@ -94,13 +99,22 @@ Q5. Authentication provider
 Q6. Platform and target environment
     Database platform (Supabase, plain PostgreSQL, Neon, RDS…)?
     Which environment to audit — local, staging, or production?
+    If platform is already known, only ask the environment:
+    1. Local
+    2. Staging
+    3. Production
+    4. Other / not sure
 
 Q7. Known concerns
     Any specific areas of worry, recent auth-touching changes,
     or past incidents?
+    Ask as a single open-ended question:
+    Any known concerns, recent auth/RLS changes, or past incidents you want prioritized?
 
 Q8. Out of scope
     Any tables, schemas, or areas to explicitly skip?
+    Ask as a single open-ended question:
+    Any tables, schemas, or areas explicitly out of scope?
 ```
 
 ---

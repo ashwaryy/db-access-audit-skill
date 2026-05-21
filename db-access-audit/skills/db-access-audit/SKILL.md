@@ -66,7 +66,7 @@ Every finding must include: **object name** (schema/table/collection/view/functi
 
 You MUST complete these gates in order before producing the final audit report. Do not skip them because the repository appears simple, because generated schema/types are present, or because a default exists.
 
-1. **Context gate** — inspect repository context first, then ask only unresolved context questions from `references/preflight-and-context.md`.
+1. **Context gate** — inspect repository context first, then ask only unresolved context questions from `references/preflight-and-context.md`, one question at a time.
 2. **Access gate** — check for a live metadata connection. If none is available, ask once whether the human can provide read-only metadata access, a schema dump/migrations, or wants to proceed with local artifacts only. Only downgrade to Tier 4/5 after the human declines, cannot provide access, or explicitly asks you to proceed with local artifacts only.
 3. **Report format gate** — ask the human once for the final report format unless they already specified it. Use exactly:
 
@@ -86,8 +86,9 @@ When a question has a small fixed set of answers, prefer selectable options over
 
 - If the host environment exposes a native choice UI, use it for fixed-choice questions.
 - If no native choice UI is available, present a numbered list and ask the human to reply with the number.
-- Do not ask multiple fixed-choice questions in one message unless the host can present them as separate choice controls.
+- Ask at most one question per message. Wait for the human's answer before asking the next unresolved question.
 - Keep option labels short and mutually exclusive. Put the recommended option first.
+- If the human answers multiple pending questions at once, record all supplied answers and continue with the next unresolved question.
 
 Use these fixed-choice prompts for the required gates:
 
@@ -111,7 +112,7 @@ digraph db_access_audit_preflight {
   "Read context files" [shape=box];
   "Explore repository" [shape=box];
   "Unanswered context questions?" [shape=diamond];
-  "Ask unresolved context questions" [shape=box];
+  "Ask next unresolved context question" [shape=box];
   "Check metadata access" [shape=box];
   "Live metadata access available?" [shape=diamond];
   "Ask for read-only access or schema artifacts" [shape=box];
@@ -122,9 +123,9 @@ digraph db_access_audit_preflight {
 
   "Read context files" -> "Explore repository";
   "Explore repository" -> "Unanswered context questions?";
-  "Unanswered context questions?" -> "Ask unresolved context questions" [label="yes"];
+  "Unanswered context questions?" -> "Ask next unresolved context question" [label="yes"];
   "Unanswered context questions?" -> "Check metadata access" [label="no"];
-  "Ask unresolved context questions" -> "Check metadata access";
+  "Ask next unresolved context question" -> "Unanswered context questions?";
   "Check metadata access" -> "Live metadata access available?";
   "Live metadata access available?" -> "Ask report format" [label="yes"];
   "Live metadata access available?" -> "Ask for read-only access or schema artifacts" [label="no"];
