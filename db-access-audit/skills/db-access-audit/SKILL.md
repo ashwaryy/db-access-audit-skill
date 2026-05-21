@@ -67,7 +67,7 @@ Every finding must include: **object name** (schema/table/collection/view/functi
 You MUST complete these gates in order before producing the final audit report. Do not skip them because the repository appears simple, because generated schema/types are present, or because a default exists.
 
 1. **Context gate** — inspect repository context first, then ask only unresolved context questions from `references/preflight-and-context.md`.
-2. **Access gate** — check for a live metadata connection. If none is available, ask once whether the human can provide read-only metadata access, a schema dump, or migrations. Only downgrade to Tier 4/5 after the human declines, cannot provide access, or explicitly asks you to proceed with local artifacts only.
+2. **Access gate** — check for a live metadata connection. If none is available, ask once whether the human can provide read-only metadata access, a schema dump/migrations, or wants to proceed with local artifacts only. Only downgrade to Tier 4/5 after the human declines, cannot provide access, or explicitly asks you to proceed with local artifacts only.
 3. **Report format gate** — ask the human once for the final report format unless they already specified it. Use exactly:
 
 ```text
@@ -79,6 +79,30 @@ Preferred report format?
 Default to Interactive HTML only after this question has been asked and the human does not choose, declines to choose, or says to proceed.
 
 Do not start the final audit report until the context, access, and report format gates are complete.
+
+#### Fixed-choice questions
+
+When a question has a small fixed set of answers, prefer selectable options over free-form typing.
+
+- If the host environment exposes a native choice UI, use it for fixed-choice questions.
+- If no native choice UI is available, present a numbered list and ask the human to reply with the number.
+- Do not ask multiple fixed-choice questions in one message unless the host can present them as separate choice controls.
+- Keep option labels short and mutually exclusive. Put the recommended option first.
+
+Use these fixed-choice prompts for the required gates:
+
+```text
+Can you provide authorization metadata for this audit?
+1. Read-only metadata access (recommended)
+2. Migration files or schema export
+3. Proceed with local artifacts only
+```
+
+```text
+Preferred report format?
+1. Interactive HTML (recommended)
+2. Markdown (.md)
+```
 
 #### Preflight process flow
 

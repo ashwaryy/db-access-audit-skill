@@ -117,7 +117,7 @@ Do not read live application rows/documents by default. Behavioral tests are opt
 
 First, check whether a connection is already available (e.g. an MCP server is already configured and responding). If it is, confirm silently and proceed — do not ask for something you already have.
 
-If no connection is available, identify the database type from the context gathered in Steps 1–3, then ask the human to provide access using the most appropriate path below. Do not silently downgrade to repository-only artifacts just because no live connection is visible.
+If no connection is available, identify the database type from the context gathered in Steps 1–3, then ask the human to provide access using the most appropriate path below. Prefer native selectable options when the host supports them; otherwise use a numbered list. Do not silently downgrade to repository-only artifacts just because no live connection is visible.
 
 ### Access tiers — choose the highest tier available
 
@@ -140,6 +140,15 @@ Ask the human to set up a **read-only** connection scoped to authorization metad
 
 **Do not share superuser credentials, admin/service keys, root keys, or any credential with write access.** A read-only role or a scoped metadata token is sufficient and preferred. If a behavioral test harness needs a narrowly-scoped capability — e.g. the ability to `SET ROLE` / `EXECUTE AS`, or use the rules emulator / IAM simulator — request it separately and follow the opt-in rules above.
 
+For the access gate, use this fixed-choice prompt:
+
+```text
+Can you provide authorization metadata for this audit?
+1. Read-only metadata access (recommended)
+2. Migration files or schema export
+3. Proceed with local artifacts only
+```
+
 ### If live access is not possible — Tier 3 or 4 fallback
 
 Ask the human to provide one or more of:
@@ -156,13 +165,15 @@ State clearly in the report's Scope section which tier of access was used and ho
 
 ## Step 5 — Ask about the output format
 
-Ask once, briefly, unless the human already specified the format:
+Ask once, briefly, unless the human already specified the format. Prefer native selectable options when the host supports them; otherwise use a numbered list:
 
-> **Preferred report format?**
-> - **Interactive HTML** *(recommended)* — single file, opens in a browser, sidebar navigation, collapsible findings, severity colour-coding, code blocks, remediation roadmap.
-> - **Markdown (.md)** — plain text, suitable for committing to a repo or pasting into a wiki.
->
-> Default: Interactive HTML if you do not choose or ask me to proceed.
+```text
+Preferred report format?
+1. Interactive HTML (recommended) — single file, opens in a browser, sidebar navigation, collapsible findings, severity colour-coding, code blocks, remediation roadmap.
+2. Markdown (.md) — plain text, suitable for committing to a repo or pasting into a wiki.
+```
+
+Default: Interactive HTML if you do not choose or ask me to proceed.
 
 Record the chosen or explicitly defaulted format and apply it when producing the final report. Do not infer Markdown merely because the conversation UI supports Markdown.
 
