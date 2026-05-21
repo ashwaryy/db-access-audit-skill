@@ -1,0 +1,7 @@
+{
+  "name": "db-access-audit",
+  "version": "2.0.0",
+  "description": "Cross-platform database authorization auditor (RBAC + row/document-level controls) for PostgreSQL/Supabase, MySQL, SQL Server, and NoSQL (Firestore/MongoDB/DynamoDB)",
+  "skills": "./skills",
+  "icon": "./assets/db-access-audit.png"
+}
