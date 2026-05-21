@@ -1,6 +1,6 @@
 # Required Final Report Format
 
-Apply the format the human chose in Pre-Flight Step 5 (Interactive HTML by default, or Markdown). Scale the depth to the project — a small single-tenant app does not need every sub-table populated; a multi-tenant platform does. The column headings below are platform-neutral; adapt the labels to the target (e.g. "USING/WITH CHECK" for Postgres, "rule condition" for Firestore, "IAM condition" for DynamoDB, "FILTER/BLOCK predicate" for SQL Server).
+Apply the format the human chose or explicitly defaulted in Pre-Flight Step 5 (Interactive HTML by default after asking, or Markdown). Do not infer Markdown merely because the conversation UI supports Markdown. Scale the depth to the project — a small single-tenant app does not need every sub-table populated; a multi-tenant platform does. The column headings below are platform-neutral; adapt the labels to the target (e.g. "USING/WITH CHECK" for Postgres, "rule condition" for Firestore, "IAM condition" for DynamoDB, "FILTER/BLOCK predicate" for SQL Server).
 
 ```markdown
 # Database Access Audit Report

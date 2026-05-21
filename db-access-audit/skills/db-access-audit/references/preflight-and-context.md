@@ -66,7 +66,7 @@ Mark every answer derived from code exploration as **[inferred from repo]**.
 
 ## Step 3 — Ask the human only for what remains
 
-If any of the following questions are still unanswered after Steps 1 and 2, ask the human. Present only the unanswered ones — do not ask about things you already know. Skipping any question is fine; if the human does not answer, proceed and flag the assumption in the report as **Inferred — not confirmed by human**.
+If any of the following questions are still unanswered after Steps 1 and 2, ask the human. Present only the unanswered ones — do not ask about things you already know. If the human explicitly declines to answer or asks you to proceed, continue and flag the assumption in the report as **Inferred — not confirmed by human**.
 
 ```
 Context Questions (ask only unanswered ones)
@@ -117,7 +117,7 @@ Do not read live application rows/documents by default. Behavioral tests are opt
 
 First, check whether a connection is already available (e.g. an MCP server is already configured and responding). If it is, confirm silently and proceed — do not ask for something you already have.
 
-If no connection is available, identify the database type from the context gathered in Steps 1–3, then ask the human to provide access using the most appropriate path below.
+If no connection is available, identify the database type from the context gathered in Steps 1–3, then ask the human to provide access using the most appropriate path below. Do not silently downgrade to repository-only artifacts just because no live connection is visible.
 
 ### Access tiers — choose the highest tier available
 
@@ -148,21 +148,23 @@ Ask the human to provide one or more of:
 - ORM model files (`schema.prisma`, `models.py`, `schema.rb`, etc.)
 - Migration files in chronological order
 
+Only use a Tier 3/4/5 fallback after the human declines live access, cannot provide live access, or explicitly asks you to proceed with local artifacts only.
+
 State clearly in the report's Scope section which tier of access was used and how that limits the confidence of each finding category. If no access of any kind is possible, mark all findings as **Needs Verification — no live access**.
 
 ---
 
 ## Step 5 — Ask about the output format
 
-Ask once, briefly:
+Ask once, briefly, unless the human already specified the format:
 
 > **Preferred report format?**
 > - **Interactive HTML** *(recommended)* — single file, opens in a browser, sidebar navigation, collapsible findings, severity colour-coding, code blocks, remediation roadmap.
 > - **Markdown (.md)** — plain text, suitable for committing to a repo or pasting into a wiki.
 >
-> Default: Interactive HTML if no answer.
+> Default: Interactive HTML if you do not choose or ask me to proceed.
 
-Record the chosen format and apply it when producing the final report.
+Record the chosen or explicitly defaulted format and apply it when producing the final report. Do not infer Markdown merely because the conversation UI supports Markdown.
 
 ---
 
