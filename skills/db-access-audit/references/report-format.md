@@ -2,6 +2,20 @@
 
 Apply the format the human chose or explicitly defaulted in Pre-Flight Step 5 (Interactive HTML by default after asking, or Markdown). Do not infer Markdown merely because the conversation UI supports Markdown. Scale the depth to the project — a small single-tenant app does not need every sub-table populated; a multi-tenant platform does. The column headings below are platform-neutral; adapt the labels to the target (e.g. "USING/WITH CHECK" for Postgres, "rule condition" for Firestore, "IAM condition" for DynamoDB, "FILTER/BLOCK predicate" for SQL Server).
 
+## Interactive HTML template
+
+When the chosen/defaulted output is **Interactive HTML**, use `assets/interactive-html-report-template.html` as the style and structure template. Preserve the template's visual system and interaction model exactly, while replacing the sample audit data with the current audit's evidence:
+
+- single self-contained `.html` file
+- dark fixed-sidebar layout with progress bar
+- hero section with audit metadata and finding counters
+- summary cards, inventory tables, roadmap phases, validation tables, and footer
+- severity-colored finding cards (`high`, `medium`, `low`, `info`)
+- collapsible finding bodies with evidence, exploit scenario, remediation, example fix, and validation fields
+- responsive behavior and JavaScript interactions from the template
+
+Do not invent a different HTML design, palette, layout, or component style for Interactive HTML reports. If the report needs extra sections, add them using the existing card/table/finding/section patterns from the template.
+
 ```markdown
 # Database Access Audit Report
 
