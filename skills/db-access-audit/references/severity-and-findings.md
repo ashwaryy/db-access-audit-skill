@@ -4,7 +4,7 @@ Use this rubric consistently.
 
 ## Critical
 
-Use when exploitation can cause immediate major data breach or privilege escalation.
+Use when exploitation can directly cause a major data breach or privilege escalation.
 
 Examples:
 
@@ -34,14 +34,14 @@ Use for meaningful control weaknesses with limited direct exploitability.
 Examples:
 
 - Overbroad internal grants.
-- Missing access recertification.
+- Missing access review criteria.
 - Unscoped admin roles in low-sensitivity areas.
-- Temporary exceptions without expiry.
+- Temporary exceptions without review criteria.
 - Weak audit trail for permission changes.
 
 ## Low
 
-Use for hygiene issues with limited immediate risk.
+Use for hygiene issues with limited direct risk.
 
 Examples:
 
@@ -73,7 +73,7 @@ Use these as standard finding titles when applicable. Phrasing is platform-neutr
 10. **Default privileges or default-allow rules expose future objects**
 11. **Unscoped global admin role creates excessive blast radius**
 12. **No separation of duties for high-risk workflow**
-13. **Temporary elevated access lacks expiry**
+13. **Temporary elevated access lacks explicit review criteria**
 14. **Stale users/service accounts retain access**
 15. **Audit logs insufficient for authorization incident response**
 16. **Control relies on mutable/spoofable identity metadata**

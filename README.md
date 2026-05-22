@@ -58,12 +58,12 @@ Choose your preferred report format at the start of the session:
 
 | Section | Contents |
 |---|---|
-| Executive Summary | Overall risk rating, top risks, strong controls, immediate actions |
+| Executive Summary | Overall risk rating, top risks, strong controls, highest-priority actions |
 | Scope and Access | Database, environment, schemas inspected, access method used |
 | Authorization Model | Users, roles, permissions, scopes, hierarchy, separation of duties |
 | Inventory | Resources, row/document-control coverage, access-control matrix, permissions/IAM, privileged routines, role membership |
 | Findings | Severity-rated findings with evidence, exploit scenario, remediation (SQL / rule / IAM), and validation steps |
-| Remediation Roadmap | Prioritised by 0–48 hours / 1–2 weeks / 1–2 months / long-term governance |
+| Remediation Roadmap | Prioritised by exploitability and blast radius: contain exposure / tighten controls / improve assurance / govern access |
 | Validation Test Plan | Test cases for negative authorization scenarios |
 
 ---

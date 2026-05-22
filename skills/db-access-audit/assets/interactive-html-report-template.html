@@ -573,7 +573,7 @@ footer {
       </div>
     </div>
     <div class="card">
-      <div class="card-label">Immediate Required Actions</div>
+      <div class="card-label">Highest-Priority Actions</div>
       <ul class="check-list">
         <li class="crit">Replace broad client-facing privileges with least-privilege grants.</li>
         <li class="warn">Add missing read filters and write validation for scoped resources.</li>
@@ -589,7 +589,7 @@ footer {
         <li>Explicit row/document-level policies on sensitive resources.</li>
         <li>Role assignments include an owner, tenant, workspace, or environment scope.</li>
         <li>Privileged credentials are restricted to trusted server-side paths.</li>
-        <li>Permission changes are auditable and reviewed periodically.</li>
+        <li>Permission changes are auditable and tied to explicit review criteria.</li>
       </ul>
     </div>
     <div class="card">
@@ -700,12 +700,12 @@ mutable fields: owner_id, tenant_id, role, status</div></div>
       <div class="f-grid">
         <div>
           <div class="f-field"><div class="fl">Affected Objects</div><div class="fv">Role memberships, temporary access exceptions, service accounts.</div></div>
-          <div class="f-field"><div class="fl">Evidence</div><div class="evidence">recertification evidence: not provided
-temporary access expiry: not visible
+          <div class="f-field"><div class="fl">Evidence</div><div class="evidence">access review evidence: not provided
+temporary access approval scope: not visible
 service account owner: not documented</div></div>
         </div>
         <div>
-          <div class="f-field"><div class="fl">Recommended Remediation</div><div class="fv">Attach access changes to an approval trail, expiry, scope, owner, and periodic review cadence.</div></div>
+          <div class="f-field"><div class="fl">Recommended Remediation</div><div class="fv">Attach access changes to an approval trail, scope, owner, and review criteria.</div></div>
         </div>
       </div>
     </div>
@@ -715,10 +715,10 @@ service account owner: not documented</div></div>
 <div class="section" id="roadmap">
   <div class="sec-head"><span class="sec-num">05</span><h2>Remediation Roadmap</h2></div>
   <div class="roadmap">
-    <div class="phase p0"><div class="phase-tag">0-48 Hours</div><div class="phase-title">Contain Exposure</div><div class="phase-item"><span class="phase-item-n">#001</span>Remove broad client privileges.</div></div>
-    <div class="phase p1"><div class="phase-tag">1-2 Weeks</div><div class="phase-title">Tighten Controls</div><div class="phase-item"><span class="phase-item-n">#002</span>Add write-side validation.</div></div>
-    <div class="phase p2"><div class="phase-tag">1-2 Months</div><div class="phase-title">Improve Assurance</div><div class="phase-item"><span class="phase-item-n">#003</span>Add negative authorization tests.</div></div>
-    <div class="phase p3"><div class="phase-tag">Governance</div><div class="phase-title">Sustain</div><div class="phase-item"><span class="phase-item-n">#004</span>Review privileged access periodically.</div></div>
+    <div class="phase p0"><div class="phase-tag">P0</div><div class="phase-title">Contain Exposure</div><div class="phase-item"><span class="phase-item-n">#001</span>Remove broad client privileges.</div></div>
+    <div class="phase p1"><div class="phase-tag">P1</div><div class="phase-title">Tighten Controls</div><div class="phase-item"><span class="phase-item-n">#002</span>Add write-side validation.</div></div>
+    <div class="phase p2"><div class="phase-tag">P2</div><div class="phase-title">Improve Assurance</div><div class="phase-item"><span class="phase-item-n">#003</span>Add negative authorization tests.</div></div>
+    <div class="phase p3"><div class="phase-tag">Governance</div><div class="phase-title">Sustain Access Control</div><div class="phase-item"><span class="phase-item-n">#004</span>Review privileged access ownership.</div></div>
   </div>
 </div>
 

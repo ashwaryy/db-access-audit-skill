@@ -23,7 +23,7 @@ Do not invent a different HTML design, palette, layout, or component style for I
 - Overall risk rating:
 - Most important risks:
 - Strong controls observed:
-- Immediate recommended actions:
+- Highest-priority recommended actions:
 
 ## 2. Scope and Access
 - Database/platform:
@@ -78,10 +78,10 @@ Do not invent a different HTML design, palette, layout, or component style for I
 - Priority:
 
 ## 6. Remediation Roadmap
-### Immediate: 0–48 hours
-### Short term: 1–2 weeks
-### Medium term: 1–2 months
-### Long term governance
+### P0: Contain exposure
+### P1: Tighten controls
+### P2: Improve assurance
+### Governance: Sustain access control
 
 ## 7. Validation Test Plan
 | Test | Persona | Action | Expected Result | How to Run |

@@ -38,7 +38,7 @@ Verify that:
 Flag:
 
 - Bloated roles.
-- One-off custom roles without expiry.
+- One-off custom roles without explicit review criteria.
 - Role names like `AP_Role_01` or `misc_admin`.
 - Permissions duplicated across many roles without design rationale.
 
@@ -117,7 +117,7 @@ Assess whether access changes are tied to:
 - HR identity source
 - user deactivation
 - tenant membership removal
-- periodic recertification
+- explicit access review criteria
 
 Flag orphaned users, inactive admins, and stale service accounts.
 
