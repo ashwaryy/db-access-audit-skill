@@ -2,6 +2,7 @@
 name: db-access-audit
 description: Use when auditing database authorization — access control, privileges, roles, or row/document-level isolation — in any database (PostgreSQL/Supabase, MySQL, SQL Server, Firestore, MongoDB, DynamoDB). Use when reviewing schema, RLS policies, security rules, IAM access, grants, or privileged routines, or checking for cross-tenant access, privilege escalation, anonymous data exposure, or leaked admin/service credentials.
 license: MIT
+compatibility: Works in any skills-compatible agent. Live-database access is optional and uses MCP, CLI, or SDK tools when available; otherwise the audit runs from a schema dump, ORM models, or application code.
 metadata:
   author: Ashwary Sharma
   version: "2.0"

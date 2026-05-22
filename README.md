@@ -35,7 +35,7 @@ A platform-neutral core workflow loads a platform-specific reference once the ta
 npx skills add ashwaryy/db-access-audit-skill
 ```
 
-Or install via the Claude Code skill marketplace.
+Or manually copy/symlink `skills/db-access-audit/` into your agent's skills directory.
 
 ---
 

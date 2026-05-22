@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    {
-      "name": "db-access-audit",
-      "path": "./db-access-audit"
-    }
-  ]
-}
